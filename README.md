@@ -11,7 +11,7 @@ npm install node-digest-auth-client
 
 # usage
 ```
-let digestRequest = require('node-digest-auth-client');
+let digest = require('node-digest-auth-client');
 const postData = "CurrentUTCDateTime=2019-09-04T00:54:50.565Z\r\n";
 const options = {
 	hostname: '127.0.0.1',
@@ -25,5 +25,5 @@ const options = {
 		'Host': '127.0.0.1'
 	}
 };
-digestRequest(options, postData, "test", "test");
+digest.digestRequest(options, postData, "test", "test");
 ```
