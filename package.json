@@ -1,0 +1,23 @@
+{
+  "name": "node-digest-auth-client",
+  "version": "1.0.0",
+  "description": "A HTTP client for digest authentication",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha || true"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bill0119/node-digest-auth-client.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bill0119/node-digest-auth-client/issues"
+  },
+  "homepage": "https://github.com/bill0119/node-digest-auth-client#readme",
+  "devDependencies": {
+    "mocha": "^6.2.0",
+    "should": "^13.2.3"
+  }
+}
