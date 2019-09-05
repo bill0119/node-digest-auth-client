@@ -62,7 +62,10 @@ let digestRequest = (options, data, user, pass, cb) => {
 		console.error(`problem with request: ${e.message}`);
 	});
 	
-	req.write(data);
+	if (data) {
+		req.write(data);
+	}
+	
 	req.end();
 }
 
@@ -86,7 +89,10 @@ let request = (options, data, cb) => {
 		console.error(`problem with request: ${e.message}`);
 	});
 	
-	req.write(data);
+	if (data) {
+		req.write(data);
+	}
+	
 	req.end();
 }
 
