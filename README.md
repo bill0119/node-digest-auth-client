@@ -16,7 +16,7 @@ option (please refer to node.js document)
 
 https://nodejs.org/api/http.html#http_http_request_options_callback
 
-data : post data
+data : body data
 
 user : user name
 
