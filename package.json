@@ -1,6 +1,6 @@
 {
   "name": "node-digest-auth-client",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A HTTP client for digest authentication",
   "main": "index.js",
   "scripts": {

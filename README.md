@@ -9,7 +9,22 @@ A client request for HTTP digest authentication
 npm install node-digest-auth-client
 ```
 
-# usage
+## digestRequest parameter
+digestRequest(options, data, user, password, callback);
+
+option (please refer to node.js document)
+
+https://nodejs.org/api/http.html#http_http_request_options_callback
+
+data : post data
+
+user : user name
+
+password : password
+
+callback : callback function (err code, response data)
+
+
 ## POST method
 ```
 let digest = require('node-digest-auth-client');
