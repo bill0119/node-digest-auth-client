@@ -8,7 +8,7 @@ let md5 = (data) => {
 	return result;
 }
 
-let digestRequest = (options, data, user, pass) => {
+let digestRequest = (options, data, user, pass, cb) => {
 	const req = http.request(options, (res) => {
 		console.log(`STATUS: ${res.statusCode}`);
 		console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
@@ -43,9 +43,10 @@ let digestRequest = (options, data, user, pass) => {
 			let HA2 = md5(options.method + ":" + options.path);
 			let response = md5(HA1 + ":" + nonce + ":00000001:" + cnonce + ":" + qop + ":" + HA2);
 			options.headers.Authorization = "Digest username=\"" + user + "\",realm=\"" + realm + "\",nonce=\"" + nonce + "\",uri=\"" + options.path + "\",cnonce=\"" + cnonce + "\",nc=00000001,algorithm=MD5,response=\"" + response + "\",qop=\"" + qop + "\"";
-			request(options, data);
+			request(options, data, cb);
 		} else {
 			console.error("status code failed!!");
+			cb("status code failed!!", null);
 			return;
 		}
 		
@@ -65,16 +66,19 @@ let digestRequest = (options, data, user, pass) => {
 	req.end();
 }
 
-let request = (options, data) => {
+let request = (options, data, cb) => {
 	const req = http.request(options, (res) => {
+		let resData;
 		console.log(`STATUS: ${res.statusCode}`);
 		console.log(`HEADERS: ${JSON.stringify(res.headers)}`);
 		
 		res.setEncoding('utf8');
 		res.on('data', (chunk) => {
 			console.log(`BODY: ${chunk}`);
+			resData += chunk;
 		});
 		res.on('end', () => {
+			cb(null, resData);
 		});
 	});
 

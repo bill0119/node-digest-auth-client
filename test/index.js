@@ -18,7 +18,15 @@ describe('#Digest', () => {
 			}
 		};
 		
-		digest.digestRequest(options, postData, "test", "test");
+		let GetData = (err, data) => {
+			if (err) {
+				console.error(err);
+			} else {
+				console.log(data);
+			}
+		}
+
+		digest.digestRequest(options, postData, "test", "test", GetData);
 		
 		done();
 	})
