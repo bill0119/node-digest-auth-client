@@ -19,7 +19,7 @@ let digestRequest = (options, data, user, pass, cb) => {
 			let realm, nonce, qop;
 			let authSplit = auth.split(",");
 			
-			for (let k in authSplit) {
+			for (let k of authSplit) {
 				if (authSplit[k].indexOf("realm=") >= 0) {
 					let realmSplit = authSplit[k].split("=\"");
 					realm = realmSplit[realmSplit.length - 1];
