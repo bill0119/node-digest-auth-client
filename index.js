@@ -19,21 +19,21 @@ let digestRequest = (options, data, user, pass, cb) => {
 			let realm, nonce, qop;
 			let authSplit = auth.split(",");
 			
-			for (let k of authSplit) {
-				if (authSplit[k].indexOf("realm=") >= 0) {
-					let realmSplit = authSplit[k].split("=\"");
+			for (let item of authSplit) {
+				if (item.indexOf("realm=") >= 0) {
+					let realmSplit = item.split("=\"");
 					realm = realmSplit[realmSplit.length - 1];
 					realm = realm.substring(0, realm.length - 1);
 				}
 				
-				if (authSplit[k].indexOf("nonce=") >= 0) {
-					let nonceSplit = authSplit[k].split("=\"");
+				if (item.indexOf("nonce=") >= 0) {
+					let nonceSplit = item.split("=\"");
 					nonce = nonceSplit[nonceSplit.length - 1];
 					nonce = nonce.substring(0, nonce.length - 1);
 				}
 				
-				if (authSplit[k].indexOf("qop=") >= 0) {
-					let qopSplit = authSplit[k].split("=\"");
+				if (item.indexOf("qop=") >= 0) {
+					let qopSplit = item.split("=\"");
 					qop = qopSplit[qopSplit.length - 1];
 					qop = qop.substring(0, qop.length - 1);
 				}
